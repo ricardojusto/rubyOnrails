@@ -1,0 +1,21 @@
+<div class="col-md-4">
+<h1>Blog</h1>
+</div>
+
+<div class="col-md-4">
+<button class="btn btn-lg btn-success"><%= link_to 'New Post', new_post_path %></button>
+</div>
+
+<div class="col-md-4">
+<ul>
+  <div class="col-md-4">
+  <% @posts.each do |post| %>
+    <a href="posts/<%= post.id %>">
+    <li><%= post.title %></li>
+     <button class="btn btn-xs btn-danger"><%= link_to "Delete", post_path(post.id), method: :delete %></button>
+     <button class="btn btn-xs btn-warning"><%= link_to "Edit", edit_post_path(post) %></button>
+  <% end %>
+  </div>
+</ul>
+</div>
+
